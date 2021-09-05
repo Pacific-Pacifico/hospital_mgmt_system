@@ -9,6 +9,9 @@ struct Patient
     int room_assigned;
 };
 
+char *doctors[3];
 struct Patient *priority_queue[SIZE];
 
 struct Patient *register_patient();
+void assign_doctor(int);
+void assign_room(int,int);

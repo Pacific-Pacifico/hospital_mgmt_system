@@ -1,12 +1,14 @@
 #include<stdio.h>
 #include"globals.h"
 
-char *doctors[3]={"Dr. Kumar","Dr. Singh","Dr. Aggarwal"};
 int main()
 {
     struct Patient p1;
-    int option;
+    int option,n,num;
     char ch;
+    doctors[0]="Dr. Kumar";
+    doctors[1]="Dr. Singh";
+    doctors[2]="Dr. Aggarwal";
     do
     {
         printf("\nSelect the desired option:");
@@ -27,13 +29,41 @@ int main()
                 break;
 
             case 2:
-                assign_doctor();
+                printf("\nSelect doctor to assign to patient: ");
+                printf("\n1.Dr. Kumar");
+                printf("\n2.Dr. Singh");
+                printf("\n3.Dr. Aggarwal");
+                scanf("%d",&option);
+                switch(option)
+                {
+                    case 1:
+                        n=0;
+                        break;
+
+                    case 2:
+                        n=1;
+                        break;
+
+                    case 3:
+                        n=2;
+                        break;
+
+                    default:
+                        printf("\nInvalid option selected");    
+                }
+                assign_doctor(n);
                 break;
 
             case 3:
+                printf("\nEnter id of patient to assign room=");
+                scanf("%d",&n);
+                printf("Enter room number");
+                scanf("%d",&num);
+                assign_room(n,num);
                 break;
 
             case 4:
+            
                 break;
             
             case 5:
