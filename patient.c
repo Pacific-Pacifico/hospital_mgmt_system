@@ -63,7 +63,9 @@ void enqueue(struct Patient *ptr)
         return;
     }
     if(front==-1)    // when first patient registered
-        front=0;
+    {
+        front=rear=0;
+    }
     int i;
     for(i=rear-1; i>=0 && priority_queue[i].age<ptr->age ;i--)
     {
@@ -86,13 +88,15 @@ void dequeue()
         priority_queue[i-1]=priority_queue[i];
     }
     rear--;
+    if(rear==0)
+        front=-1;
 }
 
 struct Patient *peek()
 {
     if(is_empty())
     {
-        printf("\nEmpty List");
+        printf("\nEmpty patients List");
         return NULL;
     }
     return &priority_queue[front];
@@ -102,7 +106,7 @@ void show_queue()
 {
     if(is_empty())
     {
-        printf("\nEmpty List");
+        printf("\nEmpty patients list");
         return;        
     }
     int i;
@@ -114,17 +118,49 @@ void show_queue()
     }
 }
 
-void assign_doctor(int index)
+void assign_doctor()
 {
+    int option,index;
     struct Patient *ptr;
-    unsigned long id;
     ptr=peek();
-    id=ptr->id;
+    if(ptr==NULL)
+        return;
+    show_patient_details(ptr);
+    printf("\nSelect doctor to assign to patient: ");
+    printf("\n1.Dr. Kumar");
+    printf("\n2.Dr. Singh");
+    printf("\n3.Dr. Aggarwal");
+    printf("\nEnter the option:");
+    scanf("%d",&option);
+    switch(option)
+    {
+        case 1:
+            index=0;
+            break;
+
+        case 2:
+            index=1;
+            break;
+
+        case 3:
+            index=2;
+            break;
+
+        default:
+            printf("\nInvalid option selected");    
+    }
     strcpy(ptr->doc_assigned,doctors[index]);
     show_patient_details(ptr);
 }
 
-void assign_room(int id,int room_num)
+void assign_room()
 {
-
+    struct Patient *ptr;
+    int room_num;
+    ptr=peek();
+    if(ptr==NULL)
+        return;
+    printf("Enter room number to assign to patient= ");
+    scanf("%d",&room_num);
+    ptr->room_assigned=room_num;
 }

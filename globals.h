@@ -21,5 +21,5 @@ struct Patient *peek();
 void enqueue(struct Patient *);
 void dequeue();
 void show_queue();
-void assign_doctor(int);
-void assign_room(int,int);
+void assign_doctor();
+void assign_room();

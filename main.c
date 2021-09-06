@@ -8,6 +8,7 @@ int main()
     int option,n,num;
     unsigned long id;
     char ch;
+    front=rear=-1;
     doctors[0]="Dr. Kumar";
     doctors[1]="Dr. Singh";
     doctors[2]="Dr. Aggarwal";
@@ -38,47 +39,21 @@ int main()
                 break;
 
             case 3:
-                ptr=peek();
-                show_patient_details(ptr);
-                printf("\nSelect doctor to assign to patient: ");
-                printf("\n1.Dr. Kumar");
-                printf("\n2.Dr. Singh");
-                printf("\n3.Dr. Aggarwal");
-                printf("\nEnter the option:");
-                scanf("%d",&option);
-                switch(option)
-                {
-                    case 1:
-                        n=0;
-                        break;
-
-                    case 2:
-                        n=1;
-                        break;
-
-                    case 3:
-                        n=2;
-                        break;
-
-                    default:
-                        printf("\nInvalid option selected");    
-                }
-                assign_doctor(n);
+                assign_doctor();
                 break;
 
             case 4:
-                printf("\nEnter id of patient to assign room=");
-                scanf("%d",&n);
-                printf("Enter room number");
-                scanf("%d",&num);
-                assign_room(n,num);
+                assign_room();
                 break;
 
             case 5:
                 ptr=peek();
-                id=ptr->id;            
-                dequeue();
-                printf("\nPatient with id=%lu successfully removed from queue",id);
+                if(ptr!=NULL)
+                {
+                    id=ptr->id;            
+                    dequeue();
+                    printf("\nPatient with id=%lu successfully removed from queue",id);
+                }
                 break;
             
             case 6:
