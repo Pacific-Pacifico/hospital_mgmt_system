@@ -24,6 +24,8 @@ void remove_from_queue();
 void show_queue();
 void assign_doctor();
 void assign_room();
+void show_in_patients();
+void show_out_patients();
 
 void create_dir(char[]);
 void append_to_file(char[],struct Patient *);

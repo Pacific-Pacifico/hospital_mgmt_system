@@ -60,9 +60,11 @@ int main()
                 break;
 
             case 8:
+                // show_in_patients();
                 break;
 
             case 9:
+                // show_out_patients();
                 break;
 
             case 10:

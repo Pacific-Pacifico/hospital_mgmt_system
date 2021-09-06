@@ -177,11 +177,11 @@ void remove_from_queue()
     id=ptr->id;
     if(ptr->room_assigned==-1)
     {
-        strcpy(file_path,"./in_patients/");
+        strcpy(file_path,"./out_patients/");
     }
     else
     {
-        strcpy(file_path,"./out_patients/"); 
+        strcpy(file_path,"./in_patients/"); 
     }
     strcpy(date,convert_timestamp_to_time(id));
     strcat(file_path,date);
