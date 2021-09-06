@@ -4,7 +4,7 @@ struct Patient
 {
     char name[30];
     int age;
-    int id;
+    unsigned long id;
     char doc_assigned[15];
     int room_assigned;
 };

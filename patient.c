@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<time.h>
 #include"globals.h"
 
 void register_patient()
@@ -14,14 +15,15 @@ void register_patient()
     scanf("%d",&ptr->age);
     ptr->room_assigned=-1;
     strcpy(ptr->doc_assigned,"None");
+    ptr->id=(long)time(NULL);  //Assign id
     enqueue(ptr);
-    printf("\nPatient registered successfully with id=%d",ptr->id);
+    printf("\nPatient registered successfully with id=%ld",ptr->id);
 }
 
 void show_patient_details(struct Patient *ptr)
 {
     printf("\n***************");
-    printf("\nPatient id= %d",ptr->id);
+    printf("\nPatient id= %lu",ptr->id);
     printf("\nPatient name= ");
     puts(ptr->name);
     printf("Patient age= %d",ptr->age);
