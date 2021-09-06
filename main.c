@@ -4,8 +4,9 @@
 
 int main()
 {
-    struct Patient p1;
+    struct Patient p1,*ptr;
     int option,n,num;
+    unsigned long id;
     char ch;
     doctors[0]="Dr. Kumar";
     doctors[1]="Dr. Singh";
@@ -17,12 +18,13 @@ int main()
         printf("\n2.show patient queue");
         printf("\n3.Assign doctor");
         printf("\n4.Assign room");
-        printf("\n5.patient history");
-        printf("\n6.number of in-patient ");
-        printf("\n7.Details of in-patients");
-        printf("\n8.Details of out-patients");
-        printf("\n9.doctor wise patient list");
-        printf("\n10.Exit");        
+        printf("\n5.remove patient from queue");
+        printf("\n6.patient history");
+        printf("\n7.number of in-patient ");
+        printf("\n8.Details of in-patients");
+        printf("\n9.Details of out-patients");
+        printf("\n10.doctor wise patient list");
+        printf("\n11.Exit");        
         printf("\nEnter the option:");
         scanf("%d",&option);
         switch(option)
@@ -36,6 +38,8 @@ int main()
                 break;
 
             case 3:
+                ptr=peek();
+                show_patient_details(ptr);
                 printf("\nSelect doctor to assign to patient: ");
                 printf("\n1.Dr. Kumar");
                 printf("\n2.Dr. Singh");
@@ -71,7 +75,10 @@ int main()
                 break;
 
             case 5:
-
+                ptr=peek();
+                id=ptr->id;            
+                dequeue();
+                printf("\nPatient with id=%lu successfully removed from queue",id);
                 break;
             
             case 6:
@@ -87,6 +94,9 @@ int main()
                 break;
 
             case 10:
+                break;
+
+            case 11:
                 exit(1);
 
             default:

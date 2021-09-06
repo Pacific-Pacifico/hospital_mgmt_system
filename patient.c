@@ -116,7 +116,12 @@ void show_queue()
 
 void assign_doctor(int index)
 {
-    dequeue();
+    struct Patient *ptr;
+    unsigned long id;
+    ptr=peek();
+    id=ptr->id;
+    strcpy(ptr->doc_assigned,doctors[index]);
+    show_patient_details(ptr);
 }
 
 void assign_room(int id,int room_num)
