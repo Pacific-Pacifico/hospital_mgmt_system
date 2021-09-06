@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include"globals.h"
 
 int main()
@@ -13,13 +14,15 @@ int main()
     {
         printf("\nSelect the desired option:");
         printf("\n1.register patient");
-        printf("\n2.Assign doctor");
-        printf("\n3.Assign room");
-        printf("\n4.patient history");
-        printf("\n5.number of in-patient ");
-        printf("\n6.Details of in-patients");
-        printf("\n7.Details of out-patients");
-        printf("\n8.doctor wise patient list");        
+        printf("\n2.show patient queue");
+        printf("\n3.Assign doctor");
+        printf("\n4.Assign room");
+        printf("\n5.patient history");
+        printf("\n6.number of in-patient ");
+        printf("\n7.Details of in-patients");
+        printf("\n8.Details of out-patients");
+        printf("\n9.doctor wise patient list");
+        printf("\n10.Exit");        
         printf("\nEnter the option:");
         scanf("%d",&option);
         switch(option)
@@ -29,6 +32,10 @@ int main()
                 break;
 
             case 2:
+                show_queue();
+                break;
+
+            case 3:
                 printf("\nSelect doctor to assign to patient: ");
                 printf("\n1.Dr. Kumar");
                 printf("\n2.Dr. Singh");
@@ -54,7 +61,7 @@ int main()
                 assign_doctor(n);
                 break;
 
-            case 3:
+            case 4:
                 printf("\nEnter id of patient to assign room=");
                 scanf("%d",&n);
                 printf("Enter room number");
@@ -62,21 +69,24 @@ int main()
                 assign_room(n,num);
                 break;
 
-            case 4:
-            
-                break;
-            
             case 5:
+
                 break;
             
             case 6:
                 break;
-
+            
             case 7:
                 break;
 
             case 8:
                 break;
+
+            case 9:
+                break;
+
+            case 10:
+                exit(1);
 
             default:
                 printf("\nWrong option selected");
