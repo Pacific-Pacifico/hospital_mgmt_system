@@ -168,13 +168,26 @@ void assign_room()
 void remove_from_queue()
 {
     struct Patient *ptr;
-    unsigned long id;   
+    unsigned long id;
+    char date[30];   
+    char file_path[100];
     ptr=peek();
     if(ptr==NULL)
         return;
-    id=ptr->id;            
+    id=ptr->id;
+    if(ptr->room_assigned==-1)
+    {
+        strcpy(file_path,"./in_patients/");
+    }
+    else
+    {
+        strcpy(file_path,"./out_patients/"); 
+    }
+    strcpy(date,convert_timestamp_to_time(id));
+    strcat(file_path,date);
+    strcat(file_path,".dat");
+    printf("\nfile path= %s",file_path);
+    append_to_file(file_path,ptr); 
     dequeue();
-    // if(ptr->room_assigned==-1)
-    //     append_to_file("./in_patients/");  
     printf("\nPatient with id=%lu successfully removed from queue",id);
 }

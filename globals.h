@@ -29,3 +29,4 @@ void create_dir(char[]);
 void append_to_file(char[],struct Patient *);
 void read_from_file(char[]);
 
+char *convert_timestamp_to_time(unsigned long);

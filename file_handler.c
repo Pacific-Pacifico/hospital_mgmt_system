@@ -23,9 +23,9 @@ void append_to_file(char file_path[],struct Patient *ptr)
     }
     fwrite(ptr,sizeof(struct Patient),1,fout);
     if(fwrite != 0) 
-        printf("contents to file written successfully !\n");
+        printf("\nContents to file written successfully !\n");
     else 
-        printf("error writing file !\n");
+        printf("\nError writing file !\n");
     // close file
     fclose(fout);
 }
@@ -43,7 +43,7 @@ void read_from_file(char file_path[])
 
     // read file contents till end of file
     while(fread(&p, sizeof(struct Patient), 1, fin))
-        // show_patient_details(&p);
+        show_patient_details(&p);
   
     // close file
     fclose(fin);

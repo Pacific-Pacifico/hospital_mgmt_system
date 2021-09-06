@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<time.h>
+#include"globals.h"
 
-void get_time()
+void get_date_time()
 {
     int hour,minute,second,day,month,year;
     time_t now;   // `time_t` is an arithmetic time type
@@ -25,8 +26,8 @@ void get_time()
     year = local->tm_year + 1900;   // get year since 1900
 
     // print the current date
-    printf("Date is: %02d/%02d/%d\n", day, month, year);
-    printf("Time is: %02d-%02d-%d\n", hour, minute, second);
+    // printf("Date is: %02d/%02d/%d\n", day, month, year);
+    // printf("Time is: %02d-%02d-%d\n", hour, minute, second);
 }
 
 unsigned long get_timestamp()
@@ -34,21 +35,24 @@ unsigned long get_timestamp()
     return (unsigned long)time(NULL);
 }
 
-void convert_timestamp_to_time(unsigned long  timestamp)
+char *convert_timestamp_to_time(unsigned long timestamp)
 {
     time_t rawtime = timestamp;
     struct tm  ts;
-    char buf[80];
+    // char buf[80];
+    static char buf[30]; 
     // Format time, "ddd yyyy-mm-dd hh:mm:ss zzz"
     ts = *localtime(&rawtime);
-    strftime(buf, sizeof(buf), "%a %Y-%m-%d %H:%M:%S %Z", &ts);
-    printf("%s\n", buf);
+    // strftime(buf, sizeof(buf), "%a %Y-%m-%d %H:%M:%S %Z", &ts);
+    strftime(buf, sizeof(buf), "%Y-%m-%d", &ts);
+    // printf("%s\n", buf);
+    return buf;
 }
 
-int main()
-{
-    get_time();
-    unsigned long t=get_timestamp();
-    printf("%lu",t);
-    convert_timestamp_to_time(t);
-}
+// int main()
+// {
+//     get_date_time();
+//     unsigned long t=get_timestamp();
+//     printf("%lu",t);
+//     convert_timestamp_to_time(t);
+// }
