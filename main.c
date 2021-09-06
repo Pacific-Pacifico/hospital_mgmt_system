@@ -40,6 +40,7 @@ int main()
                 printf("\n1.Dr. Kumar");
                 printf("\n2.Dr. Singh");
                 printf("\n3.Dr. Aggarwal");
+                printf("\nEnter the option:");
                 scanf("%d",&option);
                 switch(option)
                 {
@@ -91,7 +92,7 @@ int main()
             default:
                 printf("\nWrong option selected");
         }
-        printf("\nEnter y/Y to continue..");
+        printf("\nEnter y/Y and press enter to continue..");
         scanf(" %c",&ch);
     } while (ch=='Y' || ch=='y');    
     return 0;

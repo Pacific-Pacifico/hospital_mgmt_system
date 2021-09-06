@@ -37,13 +37,31 @@ void show_patient_details(struct Patient *ptr)
     }
 }
 
+int is_empty()
+{
+    if(front==-1)
+        return 1;
+    else
+        return 0;
+}
+
+int is_full()
+{
+    if(rear==SIZE-1)
+        return 1;
+    else
+        return 0;
+}
+
 void enqueue(struct Patient *ptr)
 {
-    if(rear==SIZE)
+    if(is_full())
     {
         printf("\nList Full");
         return;
     }
+    if(front==-1)    // when first patient registered
+        front=0;
     int i;
     for(i=rear-1; i>=0 && priority_queue[i].age<ptr->age ;i--)
     {
@@ -53,18 +71,41 @@ void enqueue(struct Patient *ptr)
     rear++;
 }
 
-
-struct Patient dequeue()
+void dequeue()
 {
-    struct Patient p;
-    return p;
-} 
+    if(is_empty())
+    {
+        printf("\nEmpty List");
+        return;
+    }
+    int i;
+    for(i=1;i<=rear;i++)
+    {
+        priority_queue[i-1]=priority_queue[i];
+    }
+    rear--;
+}
+
+struct Patient *peek()
+{
+    if(is_empty())
+    {
+        printf("\nEmpty List");
+        return NULL;
+    }
+    return &priority_queue[front];
+}
 
 void show_queue()
 {
+    if(is_empty())
+    {
+        printf("\nEmpty List");
+        return;        
+    }
     int i;
     printf("\nPatient queue:");
-    for(i=0;i<rear;i++)
+    for(i=front;i<rear;i++)
     {
         show_patient_details(&priority_queue[i]);
         printf("\n\n");
@@ -73,10 +114,7 @@ void show_queue()
 
 void assign_doctor(int index)
 {
-    // int id=priority_list[index];
-    // struct Patient *p=
-    // strcpy(*(p->doc_assigned),doctors[index]);
-    // puts(doctors[index]);
+    dequeue();
 }
 
 void assign_room(int id,int room_num)

@@ -15,8 +15,11 @@ struct Patient priority_queue[SIZE];
 
 void register_patient();
 void show_patient_details(struct Patient *);
+int is_empty();
+int is_full();
+struct Patient *peek();
 void enqueue(struct Patient *);
-struct Patient dequeue();
+void dequeue();
 void show_queue();
 void assign_doctor(int);
 void assign_room(int,int);
