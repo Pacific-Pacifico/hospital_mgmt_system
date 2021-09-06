@@ -12,6 +12,9 @@ int main()
     doctors[0]="Dr. Kumar";
     doctors[1]="Dr. Singh";
     doctors[2]="Dr. Aggarwal";
+    create_dir("./doctors");
+    create_dir("./out_patients");
+    create_dir("./in_patients");
     do
     {
         printf("\nSelect the desired option:");
@@ -81,4 +84,14 @@ int main()
         scanf(" %c",&ch);
     } while (ch=='Y' || ch=='y');    
     return 0;
+}
+
+void clear()
+{
+    #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+    system("clear");
+    #endif
+    #if defined(_WIN32) || defined(_WIN64)
+    system("cls");
+    #endif
 }

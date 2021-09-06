@@ -24,6 +24,7 @@ void show_queue();
 void assign_doctor();
 void assign_room();
 
+void create_dir(char[]);
 void append_to_file(char[],struct Patient *);
 void read_from_file(char[]);
 

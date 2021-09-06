@@ -1,2 +1,5 @@
 *.out
 *.exe
+doctors/
+in_patients/
+out_patients/

@@ -1,5 +1,16 @@
 #include<stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include"globals.h"
+
+void create_dir(char dir[])
+{
+    int check = mkdir(dir,0777);
+    // check if directory is created or not
+    if (!check)
+        printf("Directory created\n");
+}
 
 void append_to_file(char file_path[],struct Patient *ptr)
 { 
@@ -32,7 +43,7 @@ void read_from_file(char file_path[])
 
     // read file contents till end of file
     while(fread(&p, sizeof(struct Patient), 1, fin))
-        show_patient_details(&p);
+        // show_patient_details(&p);
   
     // close file
     fclose(fin);
