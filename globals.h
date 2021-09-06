@@ -20,6 +20,7 @@ int is_full();
 struct Patient *peek();
 void enqueue(struct Patient *);
 void dequeue();
+void remove_from_queue();
 void show_queue();
 void assign_doctor();
 void assign_room();

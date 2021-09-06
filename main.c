@@ -50,13 +50,7 @@ int main()
                 break;
 
             case 5:
-                ptr=peek();
-                if(ptr!=NULL)
-                {
-                    id=ptr->id;            
-                    dequeue();
-                    printf("\nPatient with id=%lu successfully removed from queue",id);
-                }
+                remove_from_queue();
                 break;
             
             case 6:

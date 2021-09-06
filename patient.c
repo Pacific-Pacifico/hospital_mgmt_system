@@ -164,3 +164,17 @@ void assign_room()
     scanf("%d",&room_num);
     ptr->room_assigned=room_num;
 }
+
+void remove_from_queue()
+{
+    struct Patient *ptr;
+    unsigned long id;   
+    ptr=peek();
+    if(ptr==NULL)
+        return;
+    id=ptr->id;            
+    dequeue();
+    // if(ptr->room_assigned==-1)
+    //     append_to_file("./in_patients/");  
+    printf("\nPatient with id=%lu successfully removed from queue",id);
+}
