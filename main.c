@@ -54,9 +54,11 @@ int main()
                 break;
             
             case 6:
+                show_patient_history();
                 break;
             
             case 7:
+                count_in_patients();
                 break;
 
             case 8:

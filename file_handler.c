@@ -48,3 +48,24 @@ void read_from_file(char file_path[])
     // close file
     fclose(fin);
 }
+
+int count_records(char file_path[])
+{
+    struct Patient p;
+    int count=0;
+    //open file for reading
+    FILE *fin=fopen(file_path, "r");
+    if (fin == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        return -1;
+    }
+
+    // read file contents till end of file
+    while(fread(&p, sizeof(struct Patient), 1, fin))
+        count++;
+  
+    // close file
+    fclose(fin);
+    return count;
+}
