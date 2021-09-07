@@ -23,3 +23,6 @@
 in-patient means admitted patients assigned room.  
 
 out-patient means patients only appointed to doctor.  
+
+used gcc compiler  
+

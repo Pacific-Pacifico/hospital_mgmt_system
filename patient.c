@@ -32,7 +32,7 @@ void show_patient_details(struct Patient *ptr)
     puts(ptr->doc_assigned);
     printf("Patient type= ");
     if(ptr->room_assigned==-1)
-        printf("Out-patient");
+        printf("Out-Patient");
     else
     {
         printf("In-Patient");
@@ -127,6 +127,7 @@ void assign_doctor()
     ptr=peek();
     if(ptr==NULL)
         return;
+    printf("\nNext patient to be appointed:");
     show_patient_details(ptr);
     printf("\nSelect doctor to assign to patient: ");
     printf("\n1.Dr. Kumar");
@@ -163,9 +164,12 @@ void assign_room()
     ptr=peek();
     if(ptr==NULL)
         return;
-    printf("Enter room number to assign to patient= ");
+    printf("\nPatient to be assigned room:");
+    show_patient_details(ptr);
+    printf("\nEnter room number to assign to patient= ");
     scanf("%d",&room_num);
     ptr->room_assigned=room_num;
+    show_patient_details(ptr);
 }
 
 void remove_from_queue()
