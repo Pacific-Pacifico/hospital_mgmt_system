@@ -15,7 +15,7 @@ void register_patient()
     printf("\nEnter age=");
     scanf("%d",&ptr->age);
     ptr->room_assigned=-1;
-    strcpy(ptr->doc_assigned,"None");
+    strcpy(ptr->doc_assigned,"to be appointed");
     ptr->id=(long)time(NULL);  //Assign id
     enqueue(ptr);
     printf("\nPatient registered successfully with id=%ld",ptr->id);
@@ -23,7 +23,7 @@ void register_patient()
 
 void show_patient_details(struct Patient *ptr)
 {
-    printf("\n\n****************************************");
+    printf("\n\n********************************************");
     printf("\nPatient id= %lu",ptr->id);
     printf("\nPatient name= ");
     puts(ptr->name);
@@ -38,6 +38,7 @@ void show_patient_details(struct Patient *ptr)
         printf("In-Patient");
         printf("\nRoom number= %d",ptr->room_assigned);
     }
+    printf("\n********************************************");
 }
 
 int is_empty()

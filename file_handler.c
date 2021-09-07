@@ -62,7 +62,7 @@ int count_records(char file_path[])
     FILE *fin=fopen(file_path, "r");
     if (fin == NULL)
     {
-        fprintf(stderr, "\nError opening file\n");
+        // fprintf(stderr, "\nError opening file\n");
         return -1;
     }
 
@@ -83,7 +83,7 @@ struct Patient search_by_id(char file_path[],unsigned long id)
     FILE *fin=fopen(file_path, "r");
     if (fin == NULL)
     {
-        fprintf(stderr, "\nError opening file\n");
+        // fprintf(stderr, "\nError opening file\n");
         return q;
     }
 
@@ -96,16 +96,3 @@ struct Patient search_by_id(char file_path[],unsigned long id)
     fclose(fin);
     return q;
 }
-
-// int main()
-// {
-//     struct Patient temp;
-//     // temp=search_by_id("./in_patients/6-8-2021.dat",1630993289);
-//     temp=search_by_id("./in_patients/6-8-2021.dat",1630993280);
-
-//     if(temp.id==-1)
-//         printf("\nNot found");
-//     else
-//         printf("%lu",temp.id);
-//     return 0;
-// }
