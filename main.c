@@ -80,7 +80,7 @@ int main()
             default:
                 printf("\nWrong option selected");
         }
-        printf("\nEnter y/Y and press enter to continue..");
+        printf("\n\nEnter y/Y and press enter to continue..");
         scanf(" %c",&ch);
     } while (ch=='Y' || ch=='y');    
     return 0;

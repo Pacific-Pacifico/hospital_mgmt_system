@@ -182,6 +182,13 @@ void remove_from_queue()
     ptr=peek();
     if(ptr==NULL)
         return;
+    printf("\nPatient to be removed from queue");
+    show_patient_details(ptr);
+    if(strcmp(ptr->doc_assigned,"to be appointed")==0)
+    {
+        printf("\nNo doctor assigned..cannot remove patient from queue");
+        return;
+    }
     id=ptr->id;
     if(ptr->room_assigned==-1)
     {
@@ -194,7 +201,7 @@ void remove_from_queue()
     strcpy(date,convert_timestamp_to_time(id));
     strcat(file_path,date);
     strcat(file_path,".dat");
-    printf("\nfile path= %s",file_path);
+    // printf("\nfile path= %s",file_path);
     append_to_file(file_path,ptr);
 
     strcpy(doc_file_name,"./doctors/");
