@@ -148,7 +148,8 @@ void assign_doctor()
             break;
 
         default:
-            printf("\nInvalid option selected");    
+            printf("\nInvalid option selected");
+            return;    
     }
     strcpy(ptr->doc_assigned,doctors[index]);
     show_patient_details(ptr);
