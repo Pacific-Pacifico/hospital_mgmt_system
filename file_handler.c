@@ -69,3 +69,38 @@ int count_records(char file_path[])
     fclose(fin);
     return count;
 }
+
+struct Patient search_by_id(char file_path[],unsigned long id)
+{
+    struct Patient p,q;
+    q.id=-1;
+    //open file for reading
+    FILE *fin=fopen(file_path, "r");
+    if (fin == NULL)
+    {
+        fprintf(stderr, "\nError opening file\n");
+        return q;
+    }
+
+    // read file contents till end of file
+    while(fread(&p, sizeof(struct Patient), 1, fin))
+        if(p.id==id)
+            q=p;
+  
+    // close file
+    fclose(fin);
+    return q;
+}
+
+// int main()
+// {
+//     struct Patient temp;
+//     // temp=search_by_id("./in_patients/6-8-2021.dat",1630993289);
+//     temp=search_by_id("./in_patients/6-8-2021.dat",1630993280);
+
+//     if(temp.id==-1)
+//         printf("\nNot found");
+//     else
+//         printf("%lu",temp.id);
+//     return 0;
+// }

@@ -29,10 +29,12 @@ void show_in_patients();
 void show_out_patients();
 void show_patient_history();
 void doc_patients_list();
+int search_patient(char[],unsigned long);
 
 void create_dir(char[]);
 int count_records(char[]);
 void append_to_file(char[],struct Patient *);
 void read_from_file(char[]);
+struct Patient search_by_id(char file_path[],unsigned long id);
 
 char *convert_timestamp_to_time(unsigned long);

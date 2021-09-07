@@ -16,7 +16,7 @@ void count_in_patients()
         {
             strcpy(file_path,"./in_patients/");
             strcat(file_path,dir->d_name);
-            // printf("\nfile=path%s", file_path);
+            // printf("\nfile_path=%s", file_path);
             c=count_records(file_path);
             if(c!=-1)
                 count+=c;

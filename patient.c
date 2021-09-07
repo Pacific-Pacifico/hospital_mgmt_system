@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
+#include<dirent.h>
 #include"globals.h"
 
 void register_patient()
@@ -197,4 +198,32 @@ void remove_from_queue()
 
     dequeue();
     printf("\nPatient with id=%lu successfully removed from queue",id);
+}
+
+int search_patient(char dir_path[],unsigned long id)
+{
+    struct Patient p;
+    char file_path[100];
+    DIR *d;
+    struct dirent *dir;
+    d = opendir(dir_path);
+    if(d)
+    {
+        while((dir = readdir(d)) != NULL)
+        {
+            strcpy(file_path,dir_path);
+            strcat(file_path,"/");
+            strcat(file_path,dir->d_name);
+            // printf("\nfile_path=%s", file_path);
+            p=search_by_id(file_path,id);
+            if(p.id!=-1)
+            {
+                show_patient_details(&p);
+                return 1;
+            }
+            file_path[0]='\0';
+        }
+        closedir(d);
+    }
+    return 0;
 }
