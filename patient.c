@@ -23,7 +23,7 @@ void register_patient()
 
 void show_patient_details(struct Patient *ptr)
 {
-    printf("\n***************");
+    printf("\n\n****************************************");
     printf("\nPatient id= %lu",ptr->id);
     printf("\nPatient name= ");
     puts(ptr->name);

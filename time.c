@@ -54,28 +54,6 @@ char *convert_timestamp_to_time(unsigned long timestamp)
     // print the current date
     // printf("Date is: %02d/%02d/%d\n", day, month, year);
     // printf("Time is: %02d-%02d-%d\n", hour, minute, second);
-    sprintf(buf,"%d-%d-%d",day-1,month-1,year);
+    sprintf(buf,"%d-%d-%d",day,month,year);
     return buf;
 }
-
-char *convert_timestamp_to_time1(unsigned long timestamp)
-{
-    time_t rawtime = timestamp;
-    struct tm ts;
-    // char buf[80];
-    static char buf[30]; 
-    // Format time, "ddd yyyy-mm-dd hh:mm:ss zzz"
-    ts = *localtime(&rawtime);
-    // strftime(buf, sizeof(buf), "%a %Y-%m-%d %H:%M:%S %Z", &ts);
-    strftime(buf, sizeof(buf), "%Y-%m-%d", &ts);
-    // printf("%s\n", buf);
-    return buf;
-}
-
-// int main()
-// {
-//     get_date_time();
-//     unsigned long t=get_timestamp();
-//     printf("%lu",t);
-//     convert_timestamp_to_time(t);
-// }
