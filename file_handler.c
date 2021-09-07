@@ -1,7 +1,6 @@
 #include<stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
+#include<sys/types.h>
+#include<sys/stat.h>
 #include"globals.h"
 
 void create_dir(char dir[])

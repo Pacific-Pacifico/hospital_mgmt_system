@@ -16,7 +16,7 @@ void register_patient()
     scanf("%d",&ptr->age);
     ptr->room_assigned=-1;
     strcpy(ptr->doc_assigned,"to be appointed");
-    ptr->id=(long)time(NULL);  //Assign id
+    ptr->id=(unsigned long)time(NULL);  //Assign id
     enqueue(ptr);
     printf("\nPatient registered successfully with id=%ld",ptr->id);
 }
