@@ -171,6 +171,7 @@ void remove_from_queue()
     unsigned long id;
     char date[30];   
     char file_path[100];
+    char doc_file_name[50];
     ptr=peek();
     if(ptr==NULL)
         return;
@@ -187,7 +188,13 @@ void remove_from_queue()
     strcat(file_path,date);
     strcat(file_path,".dat");
     printf("\nfile path= %s",file_path);
-    append_to_file(file_path,ptr); 
+    append_to_file(file_path,ptr);
+
+    strcpy(doc_file_name,"./doctors/");
+    strcat(doc_file_name,ptr->doc_assigned);
+    strcat(doc_file_name,".dat");
+    append_to_file(doc_file_name,ptr); 
+
     dequeue();
     printf("\nPatient with id=%lu successfully removed from queue",id);
 }

@@ -24,10 +24,10 @@ int main()
         printf("\n4.Assign room");
         printf("\n5.remove patient from queue");
         printf("\n6.patient history");
-        printf("\n7.number of in-patient ");
+        printf("\n7.number of in-patients ");
         printf("\n8.Details of in-patients");
         printf("\n9.Details of out-patients");
-        printf("\n10.doctor wise patient list");
+        printf("\n10.doctor wise patients list");
         printf("\n11.Exit");        
         printf("\nEnter the option:");
         scanf("%d",&option);
@@ -68,6 +68,7 @@ int main()
                 break;
 
             case 10:
+                doc_patients_list();
                 break;
 
             case 11:

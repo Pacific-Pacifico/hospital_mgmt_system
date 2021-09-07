@@ -26,6 +26,7 @@ void assign_doctor();
 void assign_room();
 void show_in_patients();
 void show_out_patients();
+void doc_patients_list();
 
 void create_dir(char[]);
 void append_to_file(char[],struct Patient *);
