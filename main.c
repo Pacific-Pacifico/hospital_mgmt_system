@@ -17,6 +17,7 @@ int main()
     create_dir("./in_patients");
     do
     {
+        clear();
         printf("\nSelect the desired option:");
         printf("\n1.register patient");
         printf("\n2.show patient queue");

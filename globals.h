@@ -38,3 +38,4 @@ void read_from_file(char[]);
 struct Patient search_by_id(char file_path[],unsigned long id);
 
 char *convert_timestamp_to_time(unsigned long);
+void clear();
