@@ -6,7 +6,12 @@
 
 void create_dir(char dir[])
 {
+    #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
     int check = mkdir(dir,0777);
+    #endif
+    #if defined(_WIN32) || defined(_WIN64)
+    int check = mkdir(dir);
+    #endif
     // check if directory is created or not
     if (!check)
         printf("Directory created\n");
